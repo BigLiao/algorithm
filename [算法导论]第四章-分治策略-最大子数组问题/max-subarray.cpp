@@ -17,7 +17,15 @@ tuple<int, int*, int*> findMaxSubArrayCross(int* low, int* mid, int* high);
 // 注意左闭右开
 tuple<int, int*, int*> findMaxSubArray(int* low, int* high) {
     if (high - low == 1) {
-        return {*low, low, high};
+        return {*low, low, low+1};
+    } else if (high - low == 2) {
+        if (*low > *high) {
+            return {*low, low, low+1};
+        } else {
+            return {*(low+1), low+1, low+2};
+        }
+    } else {
+        int* mid = low + (high - low) / 2;
+        
     }
-    int* mid = low + (high - low) / 2;
 }
